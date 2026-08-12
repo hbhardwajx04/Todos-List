@@ -3,55 +3,77 @@ import { AddTodo } from "./MyComponents/AddTodo";
 import { Footer } from "./MyComponents/Footer";
 import { Todos } from "./MyComponents/Todos";
 import { About } from "./MyComponents/About";
-import { useState, useEffect } from "react";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function App() {
+  // Load Todos from Local Storage
   let initTodo;
+
   if (localStorage.getItem("todos") === null) {
     initTodo = [];
   } else {
     initTodo = JSON.parse(localStorage.getItem("todos"));
   }
 
-  const onDelete = (todo) => {
-    // console.log("I am onDelete of todo: ", todo);
+  // State
+  const [todos, setTodos] = useState(initTodo);
 
-    setTodos(
-      todos.filter((e) => {
-        return e !== todo;
-      }),
-    );
+  // Save Todos to Local Storage
+  useEffect(() => {
     localStorage.setItem("todos", JSON.stringify(todos));
-  };
+  }, [todos]);
 
+  // Add Todo
   const addTodo = (title, desc) => {
-    // console.log("i am adding this Todo", title, desc);
     let SNo;
+
     if (todos.length === 0) {
       SNo = 1;
     } else {
       SNo = todos[todos.length - 1].SNo + 1;
     }
+
     const myTodo = {
       SNo: SNo,
       title: title,
       desc: desc,
+      status: "Pending",
     };
+
     setTodos([...todos, myTodo]);
-    // console.log(myTodo);
   };
 
-  const [todos, setTodos] = useState(initTodo);
-  useEffect(() => {
-    localStorage.setItem("todos", JSON.stringify(todos));
-  }, [todos]);
+  // Delete Todo
+  const onDelete = (todo) => {
+    setTodos(todos.filter((e) => e !== todo));
+  };
+
+  // Update Todo
+  const updateTodo = (updatedTodo) => {
+    setTodos(
+      todos.map((todo) =>
+        todo.SNo === updatedTodo.SNo ? updatedTodo : todo
+      )
+    );
+  };
+
+  // Change Status
+  const changeStatus = (todo, status) => {
+    setTodos(
+      todos.map((item) =>
+        item.SNo === todo.SNo
+          ? { ...item, status: status }
+          : item
+      )
+    );
+  };
 
   return (
     <>
       <Router>
-        <Header title="My Todos List" searchBar={false} />
+        <Header title="TaskPulse" searchBar={false} />
+
         <Switch>
           <Route
             exact
@@ -60,16 +82,26 @@ function App() {
               return (
                 <>
                   <AddTodo addTodo={addTodo} />
-                  <Todos todos={todos} onDelete={onDelete} />
+
+                  <Todos
+                    todos={todos}
+                    onDelete={onDelete}
+                    updateTodo={updateTodo}
+                    changeStatus={changeStatus}
+                  />
                 </>
               );
             }}
-          ></Route>
+          />
+
           <Route exact path="/about">
             <About />
           </Route>
         </Switch>
+
         <Footer />
+        {/* Header background color */}
+        
       </Router>
     </>
   );

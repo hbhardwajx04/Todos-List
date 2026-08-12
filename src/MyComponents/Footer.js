@@ -5,7 +5,7 @@ export const Footer = () => {
     <footer
       className="bg-dark text-light py-3"
     >
-      <p className="text-center">Copyright &copy; MyTodosList.com</p>
+      <p className="text-center">&copy; {new Date().getFullYear()} {"TaskPulse"}. Built for efficiency.</p>
     </footer>
   );
 };

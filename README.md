@@ -1,70 +1,70 @@
-# Getting Started with Create React App
+# TaskPulse - React To-Do List Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+TaskPulse is a lightweight, responsive, and robust To-Do List application built using React and Bootstrap. It helps users manage their daily tasks effortlessly while ensuring complete data persistence across sessions.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## 🚀 Key Features
 
-### `npm start`
+* **Add Tasks**: Capture new items instantly with automated serial numbering (`SNo`).
+* **Delete Tasks**: Remove unwanted or old logs quickly with individual delete targets.
+* **Update Content**: Edit existing titles and descriptions seamlessly.
+* **Status Controls**: Toggle individual item pipelines between **Pending**, **In-Progress**, or **Completed**.
+* **Smart Validation Alerts**: Form safety check prevents submission if text titles or content descriptions are left empty.
+* **Local Storage Persistence**: Saves your data directly to the browser window so logs remain secure after page refreshes.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 🛠️ Tech Stack & Architecture
 
-### `npm test`
+* **Frontend Framework**: React (Functional Components + Hooks)
+* **Routing Module**: React Router DOM (v5 Switch & Route)
+* **Styling Platform**: Bootstrap CSS Utilities
+* **State Management**: `useState` and `useEffect` APIs
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### File Structure Map
+```text
+src/
+├── MyComponents/
+│   ├── About.js      # Details application features and goals
+│   ├── AddTodo.js    # Task entry form handling text validation alerts
+│   ├── Footer.js     # Responsive sticky application footer 
+│   ├── Header.js     # Bootstrap custom brand navigation header
+│   └── Todos.js      # Layout mapping array iterations for item feeds
+├── App.js            # Main structural context handler & logic engine
+├── App.css           # Project stylesheet overrides
+└── index.js          # Core application render engine
+```
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## ⚙️ Installation & Local Setup
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Get a local copy of this project running on your computer by executing these sequential blocks:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. **Clone your remote repository**:
+   ```bash
+   git clone https://github.com
+   ```
 
-### `npm run eject`
+2. **Navigate into the application directory**:
+   ```bash
+   cd todos-list
+   ```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+3. **Install the project node dependencies**:
+   ```bash
+   npm install
+   ```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+4. **Boot up the local web developer engine**:
+   ```bash
+   npm start
+   ```
+   *The application will launch automatically on your local port at `http://localhost:3000`.*
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+---
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## 📄 License
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Distributed under the MIT License. Feel free to modify and expand this project layout!

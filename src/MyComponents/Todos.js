@@ -13,7 +13,9 @@ export const Todos = (props) => {
         ? "No Todo to display"
         : props.todos.map((todo) => {
             return (
-              <TodoItem todo={todo} key={todo.SNo} onDelete={props.onDelete} />
+              <TodoItem todo={todo} key={todo.SNo} onDelete={props.onDelete}
+              updateTodo={props.updateTodo}
+              changeStatus={props.changeStatus} />
             );
           })}
     </div>
